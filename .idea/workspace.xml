@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da4d7ff7-3728-4410-a3a9-8eb7bea06c12" name="Default Changelist" comment="" />
+    <list default="true" id="da4d7ff7-3728-4410-a3a9-8eb7bea06c12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120219%M5755e4a26043194078a6ff6ddb5906bbc0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120219%M57a43b6f193c5d4c38a7b39f3edea444b3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120220%M3776777e7f19174af0b411ec1634f4617b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120220%M37c19e832639714c9ab40174cb0a07579a.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/admin/movie_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/admin/movie_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/admin/movie_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/admin/movie_list.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +31,11 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1UN615iDtK6i0bt8jOwepga25Vt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="last_opened_file_path" value="T:/各种软件/Git/bin/git.exe" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -198,6 +212,22 @@
       <updated>1573287496399</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

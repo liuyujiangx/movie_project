@@ -1,18 +1,8 @@
 # coding : utf8
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-import pymysql
 
-app = Flask(__name__)
-
-app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql+pymysql://root:1914571065lyj@localhost:3306/movie'
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
-
-app.debug = True
-db = SQLAlchemy(app)
 
 from datetime import datetime
-
+from app import db
 
 class User(db.Model):
     __tablename__ = "user"
