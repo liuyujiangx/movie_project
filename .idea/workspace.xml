@@ -2,15 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da4d7ff7-3728-4410-a3a9-8eb7bea06c12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120219%M5755e4a26043194078a6ff6ddb5906bbc0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120219%M57a43b6f193c5d4c38a7b39f3edea444b3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120220%M3776777e7f19174af0b411ec1634f4617b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120220%M37c19e832639714c9ab40174cb0a07579a.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120220%M0755a2e19388f14d3c9f7c61251820c6ac.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120220%M07e949b38180a4499bb00441ea751deb32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120409%M22510c81e51c4b4d8aa6a9cd32264e3753.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120409%M226df5f3b7e522496b8077503e4a0aac75.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120419%M07df86dd78140f4a47bcf7a8a0a74e7f18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120419%M11f09e7f84b74844c8832ed8fed55f52a2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120419%M194c427ff84a384b0da3fad30488b6a19a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120419%M26462d8f208bec4fd998bc4172d5c3a1d3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120419%M26a5f5b9f709144e5690eba165a911db67.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/uploads/2019120419%M491f4358caec0f4e2da07e58de6dd61f13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/admin/preview_edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/admin/movie_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/admin/movie_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/admin/movie_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/admin/movie_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/admin/grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/admin/grid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/admin/movie_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/admin/movie_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/admin/preview_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/admin/preview_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/admin/preview_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/admin/preview_list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,11 +47,14 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="T:/各种软件/Git/bin/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/templates/admin" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\19145\PycharmProjects\movie_project\app\templates\admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\19145\PycharmProjects\movie_project\app\templates\admin" />
       <recent name="C:\Users\19145\PycharmProjects\movie_project\app\static\anim" />
@@ -211,6 +224,14 @@
       <option name="presentableId" value="Default" />
       <updated>1573287496399</updated>
     </task>
+    <task id="LOCAL-00001" summary="电影添加、修改、删除">
+      <created>1575288358010</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575288358011</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,6 +249,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="电影添加、修改、删除" />
+    <option name="LAST_COMMIT_MESSAGE" value="电影添加、修改、删除" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
