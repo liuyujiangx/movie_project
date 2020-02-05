@@ -2,7 +2,7 @@ from . import admin
 
 from flask import render_template, redirect, url_for, flash, session, request
 from app.admin.forms import LoginForm, TagForm, MovieForm, PreviewForm
-from app.models import Admin, Tag, Movie, Preview
+from app.models import Admin, Tag, Movie, Preview, User
 from functools import wraps
 from app import db, app
 from werkzeug.utils import secure_filename
@@ -42,12 +42,11 @@ def login():
         data = form.data
         admin = Admin.query.filter_by(name=data["account"]).first()
         if not admin.check_pwd(data["pwd"]):
-            flash("密码错误")
+            flash("密码账号或错误")
             return redirect(url_for("admin.login"))
         session["admin"] = data["account"]
         return redirect(request.args.get('next', url_for('admin.index')))
     return render_template("admin/login.html", form=form)
-    print(session)
 
 
 # 退出
@@ -117,9 +116,6 @@ def tag_list(page=None):
     ).paginate(page=page, per_page=10)
 
     return render_template("admin/tag_list.html", page_data=page_data)
-
-
-
 
 
 # 标签删除
@@ -193,9 +189,6 @@ def preview_edit(id=None):
     if form.validate_on_submit():
         data = form.data
         preview_count = Preview.query.filter_by(title=data["title"]).count()
-
-
-
 
 
 # 电影修改
@@ -309,16 +302,21 @@ def preview_del(id=None):
     return redirect(url_for('admin.preview_list', page=1))
 
 
+# 会员详情
 @admin.route("/user/view/")
 @admin_login_req
 def user_view():
     return render_template("admin/user_view.html")
 
 
-@admin.route("/user/list/")
+# 会员列表
+@admin.route("/user/list/<int:page>/")
 @admin_login_req
-def user_list():
-    return render_template("admin/user_list.html")
+def user_list(page=None):
+    if page is None:
+        page = 1
+    page_data = User.query.order_by(User.addtime.desc()).paginate(page=page, per_page=10)
+    return render_template("admin/user_list.html", page_data=page_data)
 
 
 @admin.route("/comment/list/")
