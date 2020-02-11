@@ -180,6 +180,14 @@ class Oplog(db.Model):
         return "<Oplog %r>" % self.id
 
 
+class Num(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    num = db.Column(db.Integer)
+
+
+    def __repr__(self):
+        return "<Oplog %r>" % self.num
+
 
 
 

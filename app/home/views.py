@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 
 from app import db, app
 from app.home.forms import RegisteForm, LoginForm, UserForm, CommentForm, Pwd_editForm, SearchForm
-from app.models import User, Movie, Comment
+from app.models import User, Movie, Comment, Num
 from . import home
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -182,7 +182,14 @@ def comments(page=None):
 @home.route("/")
 def index():
     movie = Movie.query.all()
-    return render_template("home/index.html", movie=movie)
+    num = Num.query.first()
+    num.num = num.num+1
+    db.session.add(num)
+    db.session.commit()
+
+
+
+    return render_template("home/index.html", movie=movie,x=num.num)
 
 
 @home.route("/search/", methods=['post', 'get'])
@@ -219,3 +226,6 @@ def play(id=None):
 @home.errorhandler(404)
 def page_not_found(error):
     return render_template("home/404.html"), 404
+
+
+
