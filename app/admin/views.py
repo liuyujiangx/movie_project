@@ -303,10 +303,11 @@ def preview_del(id=None):
 
 
 # 会员详情
-@admin.route("/user/view/")
+@admin.route("/user/view/<int:id>")
 @admin_login_req
-def user_view():
-    return render_template("admin/user_view.html")
+def user_view(id=None):
+    user = User.query.filter_by(id=id).first()
+    return render_template("admin/user_view.html",user=user)
 
 
 # 会员列表

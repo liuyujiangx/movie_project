@@ -104,7 +104,7 @@ class LoginForm(FlaskForm):
         ],
         render_kw={
             "class": "form-control input-lg",
-            "placeholder": "用户名/邮箱/手机号码",
+            "placeholder": "用户名",
             "id": "input_contact"
         }
     )
@@ -157,22 +157,97 @@ class UserForm(FlaskForm):
     info = TextAreaField(
         label="简介",
         validators=[
-            DataRequired("请输入简介！")
+            DataRequired("请输入简介")
         ],
         description="简介",
         render_kw={
             "class": "form-control",
-            "placeholder": "简介",
-            "id": "input_info",
-            "rows": "10"
-
+            "rows": 10
         }
-
+    )
+    face = FileField(
+        label="头像",
+        validators=[
+            DataRequired("请上传头像")
+        ],
+        description="头像",
     )
     submit = SubmitField(
         '保存修改',
         render_kw={
             "class": "btn btn-success",
+
+        }
+    )
+class CommentForm(FlaskForm):
+    comment = TextAreaField(
+        label='内容',
+        validators=[
+            DataRequired("请输入评论内容")
+        ],
+        description="内容",
+        render_kw={
+            "id":"input_content"
+        }
+
+    )
+    submit = SubmitField(
+        '提交评论',
+        render_kw={
+            "class": "btn btn-success",
+            "id": "btn-sub"
+
+        }
+    )
+class Pwd_editForm(FlaskForm):
+    old_password = PasswordField(
+        label="旧密码",
+        validators=[
+            DataRequired("请输入旧密码")
+        ],
+        render_kw={
+            "class": "form-control",
+            "placeholder": "旧密码",
+            "id": "input_oldpwd"
+        }
+    )
+    new_password = PasswordField(
+        label="新密码",
+        validators=[
+            DataRequired("请输入新密码")
+        ],
+        render_kw={
+            "class": "form-control",
+            "placeholder": "新密码",
+            "id": "input_newpwd"
+        }
+    )
+    submit = SubmitField(
+        '修改密码',
+        render_kw={
+            "class": "btn btn-success",
+
+
+        }
+    )
+class SearchForm(FlaskForm):
+    search = StringField(
+        label="搜索",
+        validators=[
+            DataRequired("请输入内容！")
+        ],
+        description="内容",
+        render_kw={
+            "class": "form-control",
+            "placeholder": "请输入电影名！",
+
+        }
+
+    )
+    submit = SubmitField(
+        '搜索',
+        render_kw={
+            "class": "btn btn-default",
 
         }
     )

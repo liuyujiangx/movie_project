@@ -1,8 +1,13 @@
+import datetime
+import os
+import uuid
 from functools import wraps
 
-from app import db
-from app.home.forms import RegisteForm, LoginForm, UserForm
-from app.models import User
+from werkzeug.utils import secure_filename
+
+from app import db, app
+from app.home.forms import RegisteForm, LoginForm, UserForm, CommentForm, Pwd_editForm, SearchForm
+from app.models import User, Movie, Comment
 from . import home
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -11,6 +16,13 @@ from flask import render_template, redirect, url_for, flash, request, session
 
 def checkpwd(pwd1, pwd2):
     return check_password_hash(pwd1, pwd2)
+
+
+# 修改文件名称
+def change_filename(filename):
+    fileinfo = os.path.splitext(filename)
+    filename = datetime.datetime.now().strftime("%Y%m%d%H%%M%S") + str(uuid.uuid4().hex) + fileinfo[-1]
+    return filename
 
 
 def home_login_req(f):
@@ -46,6 +58,7 @@ def login():
         if num == 1:
             if checkpwd(pwd.pwd, password):
                 session["home"] = username
+                print(password)
                 return redirect(request.args.get('next', url_for('home.user')))
             else:
                 flash("账号或密码错误", "err")
@@ -88,7 +101,8 @@ def register():
                     name=nickname,
                     email=email,
                     phone=phone,
-                    pwd=password
+                    pwd=password,
+                    face='lyj.jpg'
                 )
                 db.session.add(user)
                 db.session.commit()
@@ -105,6 +119,7 @@ def user():
     form = UserForm()
     name = session["home"]
     userx = User.query.filter_by(name=name).first()
+    print(userx.info)
     if form.validate_on_submit():
         data = form.data
         user_count = User.query.filter_by(name=data['username']).count()
@@ -113,60 +128,92 @@ def user():
         if user_count == 1:
             flash("昵称已经存在", "err")
         else:
+            face = request.files.get('face')
+            face.filename = secure_filename(face.filename)
+            if not os.path.exists(app.config["UP_DIR"]):
+                os.makedirs(app.config["UP_DIR"])
+                os.chmod(app.config["UP_DIR"], "rw")
+            face_name = change_filename(face.filename)
+            face.save(app.config["UP_DIR"] + face_name)
             userx.name = data['username']
             userx.email = data['email']
             userx.phone = data['phone']
             userx.info = data['info']
+            userx.face = face_name
             db.session.add(userx)
             db.session.commit()
             session['home'] = data['username']
             flash("保存成功", "ok")
-
     return render_template("home/user.html", userx=userx, form=form)
 
 
-@home.route("/pwd/")
+@home.route("/pwd/", methods=['post', 'get'])
 @home_login_req
 def pwd():
-    return render_template("home/pwd.html")
+    form = Pwd_editForm()
+    if form.validate_on_submit():
+        data = form.data
+        old_pwd1 = data['old_password']
+        user = User.query.filter_by(name=session['home']).first()
+        new_pwd = data['new_password']
+        print(new_pwd)
+        if checkpwd(user.pwd, old_pwd1):
+            new_pwd = generate_password_hash(new_pwd)
+            user.pwd = new_pwd
+            db.session.add(user)
+            db.session.commit()
+            flash("操作成功", 'ok')
+        else:
+            flash("密码输入错误", 'err')
+    return render_template("home/pwd.html", form=form)
 
 
-@home.route("/comments/")
+@home.route("/comments/<int:page>/")
 @home_login_req
-def comments():
-    return render_template("home/comments.html")
-
-
-@home.route("/loginlog/")
-@home_login_req
-def loginlog():
-    return render_template("home/loginlog.html")
-
-
-@home.route("/moviecol/")
-@home_login_req
-def moviecol():
-    return render_template("home/moviecol.html")
+def comments(page=None):
+    user_id = User.query.filter_by(name=session['home']).first().id
+    if page is None:
+        page = 1
+    page_data = Comment.query.filter_by(user_id=user_id).order_by(Comment.addtime.desc()).paginate(page=page,
+                                                                                                   per_page=5)
+    return render_template("home/comments.html", page_data=page_data)
 
 
 @home.route("/")
 def index():
-    return render_template("home/index.html")
+    movie = Movie.query.all()
+    return render_template("home/index.html", movie=movie)
 
 
-@home.route("/animation/")
-def animation():
-    return render_template("home/animation.html")
-
-
-@home.route("/search/")
+@home.route("/search/", methods=['post', 'get'])
 def search():
-    return render_template("home/search.html")
+    data = request.form.get('search')
+    print(data)
+    if data is not None:
+        moviex = Movie.query.filter(Movie.title.like("%" + data + "%") if data is not None else "").all()
+        moviecount = Movie.query.filter(Movie.title.like("%" + data + "%") if data is not None else "").count()
+        return render_template("home/search.html" ,moviex=moviex,data=data,moviecount=moviecount)
+    return redirect('/')
 
-
-@home.route("/play/")
-def play():
-    return render_template("home/play.html")
+@home.route("/play/<int:id>", methods=['get', 'post'])
+@home_login_req
+def play(id=None):
+    form = CommentForm()
+    movie = Movie.query.filter_by(id=id).first()
+    user = User.query.filter_by(name=session["home"]).first()
+    comments = Comment.query.filter_by(movie_id=id).all()
+    commentsnum = Comment.query.filter_by(movie_id=id).count()
+    if form.validate_on_submit():
+        data = form.data
+        comment = Comment(
+            content=data['comment'],
+            movie_id=id,
+            user_id=user.id,
+        )
+        db.session.add(comment)
+        db.session.commit()
+    return render_template("home/play.html", movie=movie, form=form, comments=comments, commentsnum=commentsnum,
+                           user=user)
 
 
 @home.errorhandler(404)

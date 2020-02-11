@@ -6,42 +6,63 @@
             padding-left: 3px;
         }
 
+
 </style>
 {%endblock%}
 {% block content %}
 {% include "home/menu.html" %}
-    <div class="col-md-9">
-        <div class="panel panel-warning">
-            <div class="panel-heading">
-                <h3 class="panel-title"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;会员中心</h3>
-            </div>
-            <div class="panel-body">
-                <form role="form">
-                    <fieldset>
-                            <div class="form-group">
-                                <label for="input_oldpwd"><span class="glyphicon glyphicon-lock"></span>&nbsp;旧密码</label>
-                                <input id="input_oldpwd" class="form-control" placeholder="旧密码" name="oldpwd" type="password" autofocus>
-                            </div>
-                            <div class="col-md-12" id="error_oldpwd"></div>
-                            <div class="form-group">
-                                <label for="input_newpwd"><span class="glyphicon glyphicon-lock"></span>&nbsp;新密码</label>
-                                <input id="input_newpwd" class="form-control" placeholder="新密码" name="newpwd" type="password" autofocus>
-                            </div>
-                            <div class="col-md-12" id="error_newpwd"></div>
-                            <a href="login.html" class="btn btn-success"><span class="glyphicon glyphicon-edit"></span>&nbsp;修改密码</a>
-                        </fieldset>
-                </form>
-            </div>
+<div class="col-md-9">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;会员中心</h3>
+        </div>
+        <div class="panel-body">
+            <form role="form" method="post">
+                <fieldset>
+                    {% for msg in get_flashed_messages(category_filter=["ok"]) %}
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-check"></i> 操作成功!</h4>
+                        {{ msg }}
+                    </div>
+                    {% endfor %}
+                    {% for msg in get_flashed_messages(category_filter=["err"]) %}
+                    <div class="alert alert-success alert-dismissible">
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-ban"></i> 操作失败!</h4>
+                            {{ msg }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <label for="input_oldpwd"><span class="glyphicon glyphicon-lock"></span>&nbsp;{{
+                            form.old_password.label }}</label>
+                        {{ form.old_password }}
+                    </div>
+                    <div class="col-md-12" id="error_oldpwd"></div>
+                    <div class="form-group">
+                        <label for="input_newpwd"><span class="glyphicon glyphicon-lock"></span>&nbsp;{{
+                            form.new_password.label }}</label>
+                        {{ form.new_password }}
+                    </div>
+                    <div class="col-md-12" id="error_newpwd"></div>
+                    {{ form.csrf_token}}
+                    {{ form.submit }}
+                </fieldset>
+            </form>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block js %}
 
-<script >
+<script>
 
     $(document).ready(function(){
         $("#m-2").addClass("active")
     })
+
 </script>
 {% endblock %}
