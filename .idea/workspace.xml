@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da4d7ff7-3728-4410-a3a9-8eb7bea06c12" name="Default Changelist" comment="gx">
-      <change afterPath="$PROJECT_DIR$/app/static/base/images/logo1.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020717%M206d1afcdf48a540b888127153d3506fa3.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020717%M20db6274f5a53c47e391b172bb82909ce7.mp4" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020722%M128886a70ec1f243d9946e2e75faab55e3.jpg" afterDir="false" />
@@ -23,6 +22,7 @@
       <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/admin/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/base/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/base/images/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M08027a22a6e193409bbeb8083f3fe712d4.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M0846aa7adb781c4e9fbb5016a4edb9df96.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M12789adc8942af41dc9b227c6a7f880941.mp4" beforeDir="false" />
