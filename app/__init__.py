@@ -24,3 +24,13 @@ app.register_blueprint(admin_blueprint, url_prefix="/admin/")
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template("home/404.html"), 404
+
+
+# @app.before_first_request
+# def first_request():
+#     print("hello word!!")
+#
+#
+# @app.before_request
+# def before_request():
+#     print("每次request")

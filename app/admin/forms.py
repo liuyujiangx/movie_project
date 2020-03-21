@@ -1,7 +1,7 @@
 # coding:utf8
 from flask_wtf import FlaskForm
 
-from wtforms import StringField, PasswordField, SubmitField, FileField, TextAreaField, SelectField
+from wtforms import StringField, PasswordField, SubmitField, FileField, TextAreaField, SelectField,RadioField
 from wtforms.validators import DataRequired, ValidationError
 from app.models import Admin, Tag
 

@@ -210,15 +210,17 @@ def play(id=None):
     user = User.query.filter_by(name=session["home"]).first()
     comments = Comment.query.filter_by(movie_id=id).all()
     commentsnum = Comment.query.filter_by(movie_id=id).count()
-    if form.validate_on_submit():
-        data = form.data
-        comment = Comment(
-            content=data['comment'],
-            movie_id=id,
-            user_id=user.id,
-        )
-        db.session.add(comment)
-        db.session.commit()
+    if request.method == "POST":
+        if form.validate_on_submit():
+            data = form.data
+            comment = Comment(
+                content=data['comment'],
+                movie_id=id,
+                user_id=user.id,
+            )
+            db.session.add(comment)
+            db.session.commit()
+            return redirect("/play/"+str(movie.id))
     return render_template("home/play.html", movie=movie, form=form, comments=comments, commentsnum=commentsnum,
                            user=user)
 
