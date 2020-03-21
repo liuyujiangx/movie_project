@@ -189,7 +189,7 @@ def index():
 
 
 
-    return render_template("home/index.html", movie=movie,x=num.num)
+    return render_template("home/index.html", movie=movie,x="已被访问"+str(num.num)+"次")
 
 
 @home.route("/search/", methods=['post', 'get'])
