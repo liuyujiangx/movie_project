@@ -223,7 +223,9 @@ def play(id=None):
             return redirect("/play/"+str(movie.id))
     return render_template("home/play.html", movie=movie, form=form, comments=comments, commentsnum=commentsnum,
                            user=user)
-
+@home.route('/mycb')
+def mycb():
+    return render_template("home/mycb.html")
 
 @home.errorhandler(404)
 def page_not_found(error):

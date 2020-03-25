@@ -2,56 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da4d7ff7-3728-4410-a3a9-8eb7bea06c12" name="Default Changelist" comment="gx">
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020717%M206d1afcdf48a540b888127153d3506fa3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020717%M20db6274f5a53c47e391b172bb82909ce7.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020722%M128886a70ec1f243d9946e2e75faab55e3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020722%M174427d80de7f645d3834e73a502ad5247.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020722%M284b0b5a382bc44c6ab7692daee8cf7bde.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020722%M2911ce15094cb54e72bbc865360df2511b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020722%M52635550b6e9d94c75b54a1b1d2f828e4a.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020723%M09c620458a9b23435897dcda30d3a1de2b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020723%M182d73cbd0bbd34536bfa5b5f47f1f4458.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020723%M38a81840450f8740b9ae6fbbcd5992c465.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020723%M421268197ac9ad4650b9ec385b86b10130.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020723%M496ee902076d214383a52e87fbba9f916b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020800%M172d9141c02cea4bfa8f289ace98c2ff1d.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020800%M17bf68e0868dff427abdd76c85fc71a91d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/2020020812%M3511ff4ac3cc6f4d14a23f759ea941b10e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/uploads/lyj.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/base/images/Connect_logo_7.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M08027a22a6e193409bbeb8083f3fe712d4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M0846aa7adb781c4e9fbb5016a4edb9df96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M12789adc8942af41dc9b227c6a7f880941.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M12f198cbd5cd534d78b32baacbb0fb32b1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M242d910f3c41174c22bcb7f7319e8edb27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M2434fc63a2feef4fc3b9bea06d2815c230.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M24a01f7244508942de8a3bfd7ecb2ea1cc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M24ea1b5d3f2441480590a431a1bdc21866.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M29354b760febae43dc8c01e36d701f8a69.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M29e2176d940fc04680bda3eec1f86fcae1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M3122f3d6c7d6ee4620820e129044fa952f.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M3134a4ce98f9dc4faeb0a6be2f3d4e68f6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M43e0cec31eba15445b919447d4da60185b.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019112909%M43ec75cd41ed6a4eeda0cb25f80785b80d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120121%M25c08eeeb7fdef44eea2a64b0b7f15356f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120121%M25dfe6b7183f0447d39a64950dcd2e2500.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120219%M5755e4a26043194078a6ff6ddb5906bbc0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120219%M57a43b6f193c5d4c38a7b39f3edea444b3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120220%M0755a2e19388f14d3c9f7c61251820c6ac.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120220%M07e949b38180a4499bb00441ea751deb32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120220%M3776777e7f19174af0b411ec1634f4617b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120220%M37c19e832639714c9ab40174cb0a07579a.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120409%M22510c81e51c4b4d8aa6a9cd32264e3753.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120409%M226df5f3b7e522496b8077503e4a0aac75.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120419%M07df86dd78140f4a47bcf7a8a0a74e7f18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120419%M11f09e7f84b74844c8832ed8fed55f52a2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120419%M194c427ff84a384b0da3fad30488b6a19a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120419%M26462d8f208bec4fd998bc4172d5c3a1d3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120419%M26a5f5b9f709144e5690eba165a911db67.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2019120419%M491f4358caec0f4e2da07e58de6dd61f13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2020020414%M0278c3ac6a60b34b15b40b7e8adbc22db2.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2020020414%M02b7a433446d79463e96dbc7ecc12135d3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/2020020414%M1646f10cdee12044238b099a184c30b21f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/home/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/home/login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,15 +37,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\19145\PycharmProjects\movie_project\app\static\base\images" />
-      <recent name="C:\Users\19145\PycharmProjects\movie_project\app\static\uploads" />
-      <recent name="C:\Users\19145\PycharmProjects\movie_project\app\templates\admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\19145\PycharmProjects\movie_project\app\static\uploads" />
       <recent name="C:\Users\19145\PycharmProjects\movie_project\app\templates\admin" />
       <recent name="C:\Users\19145\PycharmProjects\movie_project\app\static\anim" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PycharmProjects\movie_project\app\static\base\images" />
+      <recent name="C:\Users\19145\PycharmProjects\movie_project\app\static\base\images" />
+      <recent name="C:\Users\19145\PycharmProjects\movie_project\app\static\uploads" />
+      <recent name="C:\Users\19145\PycharmProjects\movie_project\app\templates\admin" />
     </key>
   </component>
   <component name="RunDashboard">

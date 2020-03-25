@@ -2,16 +2,16 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><span class="glyphicon glyphicon-log-in"></span>&nbsp;会员登录</h3>
-                </div>
-                <div class="panel-body">
-                    <form role="form" method="post">
-                        <fieldset>
-                            {% for msg in get_flashed_messages(category_filter=["ok"]) %}
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-log-in"></span>&nbsp;会员登录</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" method="post">
+                    <fieldset>
+                        {% for msg in get_flashed_messages(category_filter=["ok"]) %}
                         <div class="alert alert-success alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                             <h4><i class="icon fa fa-check"></i> 操作成功!</h4>
@@ -27,22 +27,34 @@
                             </div>
                         </div>
                         {% endfor %}
-                            <div class="form-group">
-                                <label for="input_contact">{{ form.username.label }}</label>
-                                {{ form.username }}
-                            </div>
-                            <div class="col-md-12" id="error_contact"></div>
-                            <div class="form-group">
-                                <label for="input_password">{{ form.password.label }}</label>
-                                {{ form.password }}
-                            </div>
-                            <div class="col-md-12" id="error_password"></div>
-                            {{ form.csrf_token}}
-                            {{ form.login }}
-                        </fieldset>
-                    </form>
-                </div>
+                        <div class="form-group">
+                            <label for="input_contact">{{ form.username.label }}</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="col-md-12" id="error_contact"></div>
+                        <div class="form-group">
+                            <label for="input_password">{{ form.password.label }}</label>
+                            {{ form.password }}
+                        </div>
+                        <div class="col-md-12" id="error_password"></div>
+                        {{ form.csrf_token}}
+                        {{ form.login }}
+                        <div style="margin-top:10px;">
+                        其他方式登录：
+                        <script type="text/javascript" charset="utf-8" src="http://connect.qq.com/qc_jssdk.js"
+                                data-appid="101860781" data-redirecturi="https://yujl.top/mycb"></script>
+                        <span id="qqLoginBtn"></span>
+                        <script type="text/javascript">
+                            QC.Login({
+                                btnId: "qqLoginBtn" //插入按钮的节点id
+                            });
+
+                        </script>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
