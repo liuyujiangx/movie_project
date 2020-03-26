@@ -64,7 +64,7 @@
                             	document.getElementById("face").src="{{url_for('static',filename='uploads/'+userx.face)}}"
                             	
                             } else{
-                            	document.getElementById("face").src=face
+                            	document.getElementById("face").src="{{userx.face}}"
                             }
                         </script>
 
