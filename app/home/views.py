@@ -185,13 +185,11 @@ def comments(page=None):
 def index():
     movie = Movie.query.all()
     num = Num.query.first()
-    num.num = num.num+1
+    num.num = num.num + 1
     db.session.add(num)
     db.session.commit()
 
-
-
-    return render_template("home/index.html", movie=movie,x="已被访问"+str(num.num)+"次")
+    return render_template("home/index.html", movie=movie, x="已被访问" + str(num.num) + "次")
 
 
 @home.route("/search/", methods=['post', 'get'])
@@ -201,8 +199,9 @@ def search():
     if data is not None:
         moviex = Movie.query.filter(Movie.title.like("%" + data + "%") if data is not None else "").all()
         moviecount = Movie.query.filter(Movie.title.like("%" + data + "%") if data is not None else "").count()
-        return render_template("home/search.html" ,moviex=moviex,data=data,moviecount=moviecount)
+        return render_template("home/search.html", moviex=moviex, data=data, moviecount=moviecount)
     return redirect('/')
+
 
 @home.route("/play/<int:id>", methods=['get', 'post'])
 @home_login_req
@@ -222,9 +221,11 @@ def play(id=None):
             )
             db.session.add(comment)
             db.session.commit()
-            return redirect("/play/"+str(movie.id))
+            return redirect("/play/" + str(movie.id))
     return render_template("home/play.html", movie=movie, form=form, comments=comments, commentsnum=commentsnum,
                            user=user)
+
+
 @home.route('/mycb')
 def mycb():
     data = request.args.to_dict()
@@ -232,28 +233,35 @@ def mycb():
     print(data)
     print(code)
     url = 'https://graph.qq.com/oauth2.0/token'
-    body = {'grant_type':'authorization_code','client_id':'101860781',
-            'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
-    response=requests.get(url,params=body)
+    body = {'grant_type': 'authorization_code', 'client_id': '101860781',
+            'client_secret': '0f5a014e13e7d35fbcca51ecc2ff6745', 'code': code, 'redirect_uri': 'https://yujl.top/mycb'}
+    response = requests.get(url, params=body)
     token = response.text
-    token_url = '?'+token
+    token_url = '?' + token
     requests.session().close()
-    return redirect('/token'+token_url)
+    return redirect('/token' + token_url)
+
+
 @home.route('/token')
 def token():
     data = request.args.to_dict()
     print(data)
     url = 'https://graph.qq.com/oauth2.0/me'
-    body = {'access_token':data.get('access_token')}
-    response = requests.get(url,params=body)
-    open_id = response.text[10:-4]
+    body = {'access_token': data.get('access_token')}
+    response = requests.get(url, params=body)
+    open_id = json.loads(response.text[10:-4])
     print(open_id)
+    open_id = open_id.get('openid')
     requests.session().close()
-    return 'token'
+    url1 = 'https://graph.qq.com/user/get_user_info'
+    body1 = {'access_token': data.get('access_token'), 'oauth_consumer_key': '101860781', 'openid': open_id}
+    response1 = requests.get(url1, params=body1)
+    user_info = response1.json()
+    print(user_info)
+    requests.session().close()
+    return json.dumps(user_info, ensure_ascii=False)
+
 
 @home.errorhandler(404)
 def page_not_found(error):
     return render_template("home/404.html"), 404
-
-
-
