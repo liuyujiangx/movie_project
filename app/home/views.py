@@ -245,7 +245,17 @@ def mycb():
 @home.route('/token')
 def token():
     data = request.args.to_dict()
-    print(data)
+    open_id = get_openid(data)
+    user_info = get_user_info(data,open_id)
+    return json.dumps(user_info, ensure_ascii=False)
+
+
+@home.errorhandler(404)
+def page_not_found(error):
+    return render_template("home/404.html"), 404
+
+
+def get_openid(data):
     url = 'https://graph.qq.com/oauth2.0/me'
     body = {'access_token': data.get('access_token')}
     response = requests.get(url, params=body)
@@ -253,15 +263,15 @@ def token():
     print(open_id)
     open_id = open_id.get('openid')
     requests.session().close()
+    return open_id
+
+
+
+def get_user_info(data,open_id):
     url1 = 'https://graph.qq.com/user/get_user_info'
     body1 = {'access_token': data.get('access_token'), 'oauth_consumer_key': '101860781', 'openid': open_id}
     response1 = requests.get(url1, params=body1)
     user_info = response1.json()
     print(user_info)
     requests.session().close()
-    return json.dumps(user_info, ensure_ascii=False)
-
-
-@home.errorhandler(404)
-def page_not_found(error):
-    return render_template("home/404.html"), 404
+    return user_info
