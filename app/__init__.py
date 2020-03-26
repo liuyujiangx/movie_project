@@ -11,7 +11,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 
 app.config["SECRET_KEY"] = '235c749859ec44c2bd6064ec6da7b927'
 app.config["UP_DIR"] = os.path.join(os.path.abspath(os.path.dirname(__file__)), "static/uploads/")
-app.debug = True
+app.debug = False
 db = SQLAlchemy(app)
 
 from app.home import home as home_blueprint
