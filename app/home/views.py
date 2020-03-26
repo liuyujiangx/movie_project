@@ -227,19 +227,19 @@ def play(id=None):
                            user=user)
 @home.route('/mycb')
 def mycb():
-    data = request.args.to_dict()
-    code = data.get('code')
-    print(data)
-    print(code)
-    url = 'https://graph.qq.com/oauth2.0/token'
-    body = {'grant_type':'authorization_code','client_id':'101860781',
-            'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
-    response=requests.get(url,params=body)
-    res = response.read()
-    #response.content.decode("utf-8")
-    token = json.loads(res)
-    print(token)
-    print(type(token))
+    # data = request.args.to_dict()
+    # code = data.get('code')
+    # print(data)
+    # print(code)
+    # url = 'https://graph.qq.com/oauth2.0/token'
+    # body = {'grant_type':'authorization_code','client_id':'101860781',
+    #         'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
+    # response=requests.get(url,params=body)
+    # res = response.read()
+    # #response.content.decode("utf-8")
+    # token = json.loads(res)
+    # print(token)
+    # print(type(token))
     return render_template("home/mycb.html")
 
 @home.errorhandler(404)
