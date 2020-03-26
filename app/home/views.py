@@ -225,7 +225,9 @@ def play(id=None):
                            user=user)
 @home.route('/mycb')
 def mycb():
-    return render_template("home/mycb.html")
+    access_token = request.args.get('#access_token')
+    print(access_token)
+    return render_template("home/mycb.html",access_token = access_token)
 
 @home.errorhandler(404)
 def page_not_found(error):
