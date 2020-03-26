@@ -234,8 +234,9 @@ def mycb():
     url = 'https://graph.qq.com/oauth2.0/token'
     body = {'grant_type':'authorization_code','client_id':'101860781',
             'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
-    http1=requests.get(url,params=body).json()
-    print(http1)
+    content=requests.get(url,params=body)
+    response = content.json()
+    print(response)
     return render_template("home/mycb.html")
 
 @home.errorhandler(404)
