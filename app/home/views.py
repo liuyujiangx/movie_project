@@ -237,11 +237,11 @@ def mycb():
     response=requests.get(url,params=body)
     token = response.text
     token_url = 'https://yujl.top/token?'+token
-    requests.get(token_url)
-    return render_template("home/mycb.html")
+    return redirect('/token'+token_url)
 @home.route('/token')
 def token():
     data = request.args.to_dict()
+    print(data)
     return data
 
 @home.errorhandler(404)
