@@ -1,6 +1,8 @@
 import datetime
 import os
 import uuid
+import requests
+
 from functools import wraps
 
 from werkzeug.utils import secure_filename
@@ -229,6 +231,11 @@ def mycb():
     code = data.get('code')
     print(data)
     print(code)
+    url = 'https://graph.qq.com/oauth2.0/token'
+    body = {'grant_type':'authorization_code','client_id':'101860781',
+            'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
+    http1=requests.get(url,params=body)
+    print(http1)
     return render_template("home/mycb.html")
 
 @home.errorhandler(404)
