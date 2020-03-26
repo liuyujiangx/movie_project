@@ -10,6 +10,7 @@
 
 
 
+
 </script>
 <!--播放页面-->
 <style>
@@ -17,6 +18,7 @@
             padding-right: 3px;
             padding-left: 3px;
         }
+
 
 
 
@@ -130,26 +132,27 @@
                 <ul class="commentList">
                     {% for v in comments %}
                     <li class="item cl">
-                        <a >
+                        <a>
                             <i class="avatar size-L radius">
-                                <img id="face" src=""
-                             class="img-responsive img-rounded" width="50px" height="50px">
-                        <script>
+                                <img id="x{{v.id}}" alt="50x50" src="" class="img-circle"
+                                     style="border:1px solid #abcdef;" width="50px" height="50px">
+                                <script>
                             var face1 = "{{v.user.face}}";
                             var face = face1.toString();
                             if (face.slice(-1) == "g") {
-                            	document.getElementById("face").src="{{url_for('static',filename='uploads/'+v.user.face)}}"
+                            	document.getElementById("x{{v.id}}").src="{{url_for('static',filename='uploads/'+v.user.face)}}"
 
                             } else{
-                            	document.getElementById("face").src="{{v.user.face}}"
+                            	document.getElementById("x{{v.id}}").src="{{v.user.face}}"
                             }
-                        </script>
+
+                                </script>
                             </i>
                         </a>
                         <div class="comment-main">
                             <header class="comment-header">
                                 <div class="comment-meta">
-                                    <a class="comment-author" >{{v.user.name}}</a>
+                                    <a class="comment-author">{{v.user.name}}</a>
                                     评论于
                                     <time title="2016-12-07 09:12:51" datetime="2016-12-07 09:12:51">
                                         {{v.addtime}}
@@ -185,9 +188,11 @@ var ue = UE.getEditor('input_content',{
     initialFrameHeight:"100",
 });
 
+
 </script>
 <script type="text/javascript">
 	jwplayer.key = "P9VTqT/X6TSP4gi/hy1wy23BivBhjdzVjMeOaQ==";
+
 
 </script>
 <script type="text/javascript">
@@ -213,6 +218,7 @@ var ue = UE.getEditor('input_content',{
 		height: 500,
 		width: 774,
 	});
+
 
 </script>
 <!--播放页面-->
