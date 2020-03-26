@@ -41,15 +41,9 @@
                         {{ form.login }}
                         <div style="margin-top:10px;">
                         其他方式登录：
-                        <script type="text/javascript" charset="utf-8" src="{{ url_for('static',filename = 'base/js/qc_jssdk.js')}}"
-                                data-appid="101860781" data-redirecturi="https://yujl.top/mycb"></script>
-                        <span id="qqLoginBtn"></span>
-                        <script type="text/javascript">
-                            QC.Login({
-                                btnId: "qqLoginBtn" //插入按钮的节点id
-                            });
+                            <a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101860781&redirect_uri=https://yujl.top/mycb&state=1">
+                            <img src="{{ url_for('static',filename = 'base/images/Connect_logo_7.png')}}"></a>
 
-                        </script>
                         </div>
                     </fieldset>
                 </form>
