@@ -227,20 +227,22 @@ def play(id=None):
                            user=user)
 @home.route('/mycb')
 def mycb():
-    # data = request.args.to_dict()
-    # code = data.get('code')
-    # print(data)
-    # print(code)
-    # url = 'https://graph.qq.com/oauth2.0/token'
-    # body = {'grant_type':'authorization_code','client_id':'101860781',
-    #         'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
-    # response=requests.get(url,params=body)
-    # res = response.read()
-    # #response.content.decode("utf-8")
-    # token = json.loads(res)
-    # print(token)
-    # print(type(token))
+    data = request.args.to_dict()
+    code = data.get('code')
+    print(data)
+    print(code)
+    url = 'https://graph.qq.com/oauth2.0/token'
+    body = {'grant_type':'authorization_code','client_id':'101860781',
+            'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
+    response=requests.get(url,params=body)
+    token = response.text
+    token_url = 'https://yujl.top/token?'+token
+    requests.get(token_url)
     return render_template("home/mycb.html")
+@home.route('/token')
+def token():
+    data = request.args.to_dict()
+    return data
 
 @home.errorhandler(404)
 def page_not_found(error):
