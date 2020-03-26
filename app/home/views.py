@@ -242,7 +242,7 @@ def mycb():
 def token():
     data = request.args.to_dict()
     print(data)
-    return data
+    return 'token'
 
 @home.errorhandler(404)
 def page_not_found(error):
