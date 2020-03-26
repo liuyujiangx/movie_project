@@ -226,7 +226,9 @@ def play(id=None):
 @home.route('/mycb')
 def mycb():
     data = request.args.to_dict()
+    code = data.get('code')
     print(data)
+    print(code)
     return render_template("home/mycb.html")
 
 @home.errorhandler(404)
