@@ -50,7 +50,7 @@
                                 <img id="x{{v.id}}" src=""
                                      class="img-responsive center-block" width="50px" height="50px">
                                 <script>
-                            var face1 = "{{v.user.face}}";
+                            var face1 = "{{v.face}}";
                             var face = face1.toString();
                             if (face.slice(-1) == "g") {
                             	document.getElementById("x{{v.id}}").src="{{url_for('static',filename='uploads/'+v.face)}}"
