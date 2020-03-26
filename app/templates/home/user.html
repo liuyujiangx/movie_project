@@ -60,7 +60,7 @@
                         <script>
                             var face1 = "{{userx.face}}";
                             var face = face1.toString();
-                            if (face.slice(-3) == "jpg") {
+                            if (face.slice(-1) == "g") {
                             	document.getElementById("face").src="{{url_for('static',filename='uploads/'+userx.face)}}"
                             	
                             } else{
