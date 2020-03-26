@@ -55,8 +55,18 @@
                     <div class="col-md-12" id="error_phone"></div>
                     <div class="form-group">
                         <label for="input_face"><span class="glyphicon glyphicon-picture"></span>&nbsp;{{form.face.label}}</label>
-                        <img src="{{url_for('static',filename='uploads/'+userx.face)}}"
+                        <img id="face" 
                              class="img-responsive img-rounded" width="100px" height="100px">
+                        <script>
+                            var face1 = {{userx.face}};
+                            var face = face1.toString();
+                            if (face.slice(-3) == "jpg") {
+                            	document.getElementById("face").src="{{url_for('static',filename='uploads/'+userx.face)}}"
+                            	
+                            } else{
+                            	document.getElementById("face").src=face
+                            }
+                        </script>
 
                         {{form.face}}
                     </div>
