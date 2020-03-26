@@ -6,11 +6,13 @@
 </head>
 <body>
 <p>myvcb</p>
+<script>
 var nowurl = document.URL;
 nowurl = nowurl.replace("#","")
 var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
 httpRequest.open('GET', nowurl, true);//第二步：打开连接 将请求参数写在url中 ps:"./Ptest.php?name=test&nameone=testone"
 httpRequest.send();//第三步：发送请求 将请求参数写在URL中
+</script>
 <script type="text/javascript"
         src="{{ url_for('static',filename = 'base/js/qc_jssdk.js')}}" charset="utf-8" data-callback="true"></script>
 {{access_token}}
