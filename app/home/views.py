@@ -234,7 +234,8 @@ def mycb():
     url = 'https://graph.qq.com/oauth2.0/token'
     body = {'grant_type':'authorization_code','client_id':'101860781',
             'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
-    response=requests.get(url,params=body)
+    header = {'Connection':'close'}
+    response=requests.get(url,params=body,header=header)
     token = response.text
     token_url = '?'+token
     return redirect('/token'+token_url)
@@ -244,7 +245,8 @@ def token():
     print(data)
     url = 'https://graph.qq.com/oauth2.0/me'
     body = {'access_token',data.get('access_token')}
-    response = requests.get(url,params=body)
+    header = {'Connection': 'close'}
+    response = requests.get(url,params=body,header=header)
     print(response)
 
     return 'token'
