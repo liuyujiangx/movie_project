@@ -246,8 +246,22 @@ def mycb():
 def token():
     data = request.args.to_dict()
     open_id = get_openid(data)
-    user_info = get_user_info(data,open_id)
-    return json.dumps(user_info, ensure_ascii=False)
+    user_info = get_user_info(data, open_id)
+    uuid_count = User.query.filter_by(uuid=open_id).count()
+    if uuid_count == 1:
+        name = User.query.filter_by(uuid=open_id).first()
+        session['home'] = name.name
+        return redirect('/user')
+    else:
+        user = User(
+            name=user_info.get('nickname'),
+            uuid=open_id,
+            face=user_info.get('figureurl_1')
+        )
+        db.session.add(user)
+        db.session.commit()
+        session['home'] = user_info.get('nickname')
+        return redirect('/user')
 
 
 @home.errorhandler(404)
@@ -266,8 +280,7 @@ def get_openid(data):
     return open_id
 
 
-
-def get_user_info(data,open_id):
+def get_user_info(data, open_id):
     url1 = 'https://graph.qq.com/user/get_user_info'
     body1 = {'access_token': data.get('access_token'), 'oauth_consumer_key': '101860781', 'openid': open_id}
     response1 = requests.get(url1, params=body1)
