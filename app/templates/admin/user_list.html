@@ -47,8 +47,18 @@
                             <td>{{v.phone}}</td>
                             <td>
 
-                                <img src="{{url_for('static',filename='uploads/'+v.face)}}"
-                                     class="img-responsive center-block" width="50px" height="50px">
+                                <img id="face" src=""
+                             class="img-responsive img-rounded" width="100px" height="100px">
+                        <script>
+                            var face1 = "{{v.face}}";
+                            var face = face1.toString();
+                            if (face.slice(-1) == "g") {
+                            	document.getElementById("face").src="{{url_for('static',filename='uploads/'+v.face)}}"
+
+                            } else{
+                            	document.getElementById("face").src="{{v.face}}"
+                            }
+                        </script>
                             </td>
                             <td>正常/冻结</td>
                             <td>{{v.addtime}}</td>

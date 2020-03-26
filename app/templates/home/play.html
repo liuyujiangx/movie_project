@@ -132,8 +132,18 @@
                     <li class="item cl">
                         <a >
                             <i class="avatar size-L radius">
-                                <img alt="50x50" src="{{url_for('static',filename='uploads/'+v.user.face)}}" class="img-circle"
-                                     style="border:1px solid #abcdef;" width="50px" height="50px">
+                                <img id="face" src=""
+                             class="img-responsive img-rounded" width="100px" height="100px">
+                        <script>
+                            var face1 = "{{v.user.face}}";
+                            var face = face1.toString();
+                            if (face.slice(-1) == "g") {
+                            	document.getElementById("face").src="{{url_for('static',filename='uploads/'+v.user.face)}}"
+
+                            } else{
+                            	document.getElementById("face").src="{{v.user.face}}"
+                            }
+                        </script>
                             </i>
                         </a>
                         <div class="comment-main">
