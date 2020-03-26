@@ -48,8 +48,18 @@
                                 <tr>
                                     <td class="td_bd">头像：</td>
                                     <td>
+                                        <img id="face" src=""
+                             class="img-responsive" width="100px" height="100px">
+                        <script>
+                            var face1 = "{{user.face}}";
+                            var face = face1.toString();
+                            if (face.slice(-1) == "g") {
+                            	document.getElementById("face").src="{{url_for('static',filename='uploads/'+user.face)}}"
 
-                                        <img src="{{url_for('static',filename='uploads/'+user.face)}}" class="img-responsive " width="100px" height="100px">
+                            } else{
+                            	document.getElementById("face").src="{{user.face}}"
+                            }
+                        </script>
                                     </td>
                                 </tr>
                                 <tr>
