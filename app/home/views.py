@@ -1,7 +1,7 @@
 import datetime
 import os
 import uuid
-import requests
+import requests, json
 
 from functools import wraps
 
@@ -235,10 +235,8 @@ def mycb():
     body = {'grant_type':'authorization_code','client_id':'101860781',
             'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
     response=requests.get(url,params=body)
-    if response.content:
-
-        token = response.json()
-        print(token)
+    token = json.loads(response.txt)
+    print(token)
     return render_template("home/mycb.html")
 
 @home.errorhandler(404)
