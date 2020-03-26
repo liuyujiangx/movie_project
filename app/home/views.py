@@ -242,6 +242,11 @@ def mycb():
 def token():
     data = request.args.to_dict()
     print(data)
+    url = 'https://graph.qq.com/oauth2.0/me'
+    body = {'access_token',data.get('access_token')}
+    response = requests.get(url,params=body)
+    print(response)
+
     return 'token'
 
 @home.errorhandler(404)
