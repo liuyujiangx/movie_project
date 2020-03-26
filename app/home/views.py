@@ -235,7 +235,7 @@ def mycb():
     body = {'grant_type':'authorization_code','client_id':'101860781',
             'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
     response=requests.get(url,params=body)
-    response.content.decode("unicode_escape")
+    response.content.decode("utf-8")
     token = response.json()
     print(token)
     return render_template("home/mycb.html")
