@@ -236,8 +236,9 @@ def mycb():
             'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
     response=requests.get(url,params=body)
     response.content.decode("utf-8")
-    token = response.json()
+    token = response.text
     print(token)
+    print(type(token))
     return render_template("home/mycb.html")
 
 @home.errorhandler(404)
