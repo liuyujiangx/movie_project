@@ -234,21 +234,21 @@ def mycb():
     url = 'https://graph.qq.com/oauth2.0/token'
     body = {'grant_type':'authorization_code','client_id':'101860781',
             'client_secret':'0f5a014e13e7d35fbcca51ecc2ff6745','code':code,'redirect_uri':'https://yujl.top/mycb'}
-    header = {'Connection':'close'}
-    response=requests.get(url,params=body,header=header)
+    response=requests.get(url,params=body)
     token = response.text
     token_url = '?'+token
+    requests.session().close()
     return redirect('/token'+token_url)
 @home.route('/token')
 def token():
     data = request.args.to_dict()
     print(data)
     url = 'https://graph.qq.com/oauth2.0/me'
-    body = {'access_token',data.get('access_token')}
-    header = {'Connection': 'close'}
-    response = requests.get(url,params=body,header=header)
-    print(response)
-
+    body = {'access_token':data.get('access_token')}
+    response = requests.get(url,params=body)
+    open_id = response.text[10:-4]
+    print(open_id)
+    requests.session().close()
     return 'token'
 
 @home.errorhandler(404)
