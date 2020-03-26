@@ -227,6 +227,7 @@ def play(id=None):
 def mycb():
     access_token = request.args.to_dict()
     print(access_token.get('access_token'))
+    access_token = access_token.get('access_token')
     return render_template("home/mycb.html",access_token = access_token)
 
 @home.errorhandler(404)
