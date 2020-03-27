@@ -1,7 +1,7 @@
 import datetime
 import os
 import uuid
-import requests, json
+import requests, json, random
 
 from functools import wraps
 
@@ -254,7 +254,7 @@ def token():
         return redirect('/user')
     else:
         password = generate_password_hash('123456')
-        hash_name = str(hash(user_info.get('nickname')))[1:5]
+        hash_name = str(hash(random.randint(1000,9999)))
         name = user_info.get('nickname') + hash_name
         user = User(
             name=name,
