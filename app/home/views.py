@@ -254,15 +254,17 @@ def token():
         return redirect('/user')
     else:
         password = generate_password_hash('123456')
+        hash_name = str(hash(user_info.get('nickname')))[1:5]
+        name = user_info.get('nickname') + hash_name
         user = User(
-            name=user_info.get('nickname'),
+            name=name,
             uuid=open_id,
             pwd = password,
             face=user_info.get('figureurl_1')
         )
         db.session.add(user)
         db.session.commit()
-        session['home'] = user_info.get('nickname')
+        session['home'] = name
         return redirect('/user')
 
 
