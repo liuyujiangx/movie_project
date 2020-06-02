@@ -195,11 +195,11 @@ if __name__ == "__main__":
     # db.create_all()
     from werkzeug.security import generate_password_hash
 
-    admin = Admin(
-        name="mymovie2",
-        pwd=generate_password_hash("mymovie2"),
-        is_super=0,
-        role_id=1
-    )
-    db.session.add(admin)
-    db.session.commit()
+    # admin = Admin(
+    #     name="mymovie2",
+    #     pwd=generate_password_hash("mymovie2"),
+    #     is_super=0,
+    #     role_id=1
+    # )
+    # db.session.add(admin)
+    # db.session.commit()

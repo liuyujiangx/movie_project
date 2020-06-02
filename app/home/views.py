@@ -230,8 +230,6 @@ def play(id=None):
 def mycb():
     data = request.args.to_dict()
     code = data.get('code')
-    print(data)
-    print(code)
     url = 'https://graph.qq.com/oauth2.0/token'
     body = {'grant_type': 'authorization_code', 'client_id': '101860781',
             'client_secret': '0f5a014e13e7d35fbcca51ecc2ff6745', 'code': code, 'redirect_uri': 'https://yujl.top/mycb'}
@@ -268,9 +266,7 @@ def token():
         return redirect('/user')
 
 
-@home.errorhandler(404)
-def page_not_found(error):
-    return render_template("home/404.html"), 404
+
 
 
 def get_openid(data):
@@ -278,17 +274,20 @@ def get_openid(data):
     body = {'access_token': data.get('access_token')}
     response = requests.get(url, params=body)
     open_id = json.loads(response.text[10:-4])
-    print(open_id)
     open_id = open_id.get('openid')
     requests.session().close()
     return open_id
 
 
 def get_user_info(data, open_id):
-    url1 = 'https://graph.qq.com/user/get_user_info'
-    body1 = {'access_token': data.get('access_token'), 'oauth_consumer_key': '101860781', 'openid': open_id}
-    response1 = requests.get(url1, params=body1)
+    url = 'https://graph.qq.com/user/get_user_info'
+    body = {'access_token': data.get('access_token'), 'oauth_consumer_key': '101860781', 'openid': open_id}
+    response1 = requests.get(url, params=body)
     user_info = response1.json()
-    print(user_info)
     requests.session().close()
     return user_info
+
+
+@home.errorhandler(404)
+def page_not_found(error):
+    return render_template("home/404.html"), 404
